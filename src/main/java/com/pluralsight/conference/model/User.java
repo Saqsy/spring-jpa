@@ -1,8 +1,26 @@
 package com.pluralsight.conference.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "CONF_USERS")
 public class User {
 
+    @Id
+    @GeneratedValue
+    private long id;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    @Column(name = "FIRST_NAME")
     private String firstname;
+    @Column(name = "LAST_NAME")
     private String lastname;
     private int age;
 
