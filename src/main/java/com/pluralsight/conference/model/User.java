@@ -9,11 +9,6 @@ public class User {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(name = "FIRST_NAME")
-    private String firstname;
-    @Column(name = "LAST_NAME")
-    private String lastname;
-    private int age;
 
     public Long getId() {
         return id;
@@ -22,6 +17,12 @@ public class User {
     public void setId(Long id) {
         this.id = id;
     }
+
+    @Column(name = "FIRST_NAME")
+    private String firstname;
+    @Column(name = "LAST_NAME")
+    private String lastname;
+    private int age;
 
     public String getFirstname() {
         return firstname;

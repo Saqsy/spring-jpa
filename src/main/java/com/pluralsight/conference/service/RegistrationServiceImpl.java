@@ -7,33 +7,33 @@ import com.pluralsight.conference.repository.CourseRepository;
 import com.pluralsight.conference.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.List;
+
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
 
     @Autowired
     private RegistrationRepository registrationRepository;
+
     @Autowired
     private CourseRepository courseRepository;
 
-
     @Override
     @Transactional
-    public Registration addRegistration(Registration registration) {
-        registration = registrationRepository.save(registration);
+    public Registration addRegistration(Registration registration){
+        registration =  registrationRepository.save(registration);
 
-        if(registration.getId() == null) {
+        if (registration.getId() == null) {
             Course course = new Course();
             course.setName("Intro");
-            course.setDescription("Every attendee must comple the intro.");
+            course.setDescription("Every attendee must complete the intro");
             course.setRegistration(registration);
 
             courseRepository.save(course);
         }
-
         return registration;
     }
 

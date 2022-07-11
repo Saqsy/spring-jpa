@@ -13,10 +13,8 @@ public class CourseRepositoryImpl implements CourseRepository {
     private EntityManager entityManager;
 
     @Override
-    public Course save(Course course) {
+    public Course save(Course course){
         entityManager.persist(course);
-
         return course;
     }
-
 }

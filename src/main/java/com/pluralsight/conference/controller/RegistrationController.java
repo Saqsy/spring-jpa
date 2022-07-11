@@ -20,6 +20,7 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
+
     @GetMapping("registration")
     public String getRegistration(@ModelAttribute ("registration")Registration registration) {
         return "registration";
@@ -61,7 +62,8 @@ public class RegistrationController {
     @PostMapping("registration/update")
     public @ResponseBody Registration updateRegistration (@Valid @ModelAttribute("registration")
                                                           Registration registration,
-                                                          BindingResult result) {
+                                                          BindingResult result){
         return registrationService.addRegistration(registration);
     }
+
 }
